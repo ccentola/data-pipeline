@@ -39,4 +39,31 @@ The repository is made up of the following files:
 ```
 
 ## ETL Process
+The tool used for scheduling and orchestrationg ELT is Apache Airflow.
+
+![Image of DAG](/img/dag.png)
+
+## Data
+### Sources
+Log data: s3://udacity-dend/log_data
+Song data: s3://udacity-dend/song_data
+
+### Destinations
+Data is inserted into an Amazon Redshift Cluster. The cluster uses a star schema and is structured as follows:
+
+**Fact Table:**
+* `songplays`
+
+**Dimension Tables**
+* `users`
+* `songs`
+* `artists`
+* `time`
+
+**Staging Tables**
+* `stage_events`
+* `stage_songs`
+
 ## How to Run
+**Prerequisite**
+Tables must be created in Redshift using the `create_tables.sql` script.
